@@ -1,5 +1,6 @@
 import { fastify } from 'fastify';
 import { fastifyCors } from '@fastify/cors';
+import { getAllPromptsRoute } from './routes/get-all-prompts';
 
 const app = fastify();
 
@@ -7,6 +8,8 @@ const app = fastify();
 app.register(fastifyCors, {
   origin: '*',
 })
+
+app.register(getAllPromptsRoute);
 
 app.listen({
   port: 3333,
